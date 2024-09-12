@@ -1,0 +1,195 @@
+openapi: 3.0.0
+info:
+  title: eCommerce API
+  description: API for eCommerce app that displays a list of products and product details.
+  version: 1.0.0
+
+paths:
+  /products:
+    get:
+      summary: Get a list of products
+      description: Returns a list of 10 products, including details like image, title, category, sold, price, and sales value.
+      responses:
+        '200':
+          description: A list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+              examples:
+                example-1:
+                  summary: Example of 10 products
+                  value:
+                    - id: "1"
+                      title: "Wireless Headphones"
+                      category: "Electronics"
+                      image: "https://example.com/images/headphones.jpg"
+                      sold: 100
+                      price: 99.99
+                      sales_value: 9999.00
+                    - id: "2"
+                      title: "Smartphone"
+                      category: "Electronics"
+                      image: "https://example.com/images/smartphone.jpg"
+                      sold: 150
+                      price: 699.99
+                      sales_value: 104998.50
+                    - id: "3"
+                      title: "Leather Jacket"
+                      category: "Fashion"
+                      image: "https://example.com/images/jacket.jpg"
+                      sold: 50
+                      price: 149.99
+                      sales_value: 7499.50
+                    - id: "4"
+                      title: "Gaming Laptop"
+                      category: "Electronics"
+                      image: "https://example.com/images/laptop.jpg"
+                      sold: 25
+                      price: 1299.99
+                      sales_value: 32499.75
+                    - id: "5"
+                      title: "Running Shoes"
+                      category: "Fashion"
+                      image: "https://example.com/images/shoes.jpg"
+                      sold: 80
+                      price: 79.99
+                      sales_value: 6399.20
+                    - id: "6"
+                      title: "Smart Watch"
+                      category: "Accessories"
+                      image: "https://example.com/images/watch.jpg"
+                      sold: 200
+                      price: 199.99
+                      sales_value: 39998.00
+                    - id: "7"
+                      title: "Bluetooth Speaker"
+                      category: "Electronics"
+                      image: "https://example.com/images/speaker.jpg"
+                      sold: 120
+                      price: 49.99
+                      sales_value: 5998.80
+                    - id: "8"
+                      title: "Backpack"
+                      category: "Fashion"
+                      image: "https://example.com/images/backpack.jpg"
+                      sold: 70
+                      price: 59.99
+                      sales_value: 4199.30
+                    - id: "9"
+                      title: "4K TV"
+                      category: "Electronics"
+                      image: "https://example.com/images/tv.jpg"
+                      sold: 40
+                      price: 899.99
+                      sales_value: 35999.60
+                    - id: "10"
+                      title: "Coffee Maker"
+                      category: "Home Appliances"
+                      image: "https://example.com/images/coffeemaker.jpg"
+                      sold: 90
+                      price: 49.99
+                      sales_value: 4499.10
+
+  /products/{productId}:
+    get:
+      summary: Get product details
+      description: Returns details for a specific product based on its ID, including title, description, size, company name, and tags.
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetails'
+              examples:
+                example-1:
+                  summary: Example product details
+                  value:
+                    id: "1"
+                    title: "Wireless Headphones"
+                    description: "High-quality wireless headphones with noise cancellation."
+                    size: "One Size"
+                    company_name: "AudioPro"
+                    tags:
+                      - "Electronics"
+                      - "Audio"
+                      - "Headphones"
+        '404':
+          description: Product not found
+        '500':
+          description: Server Error
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the product
+        title:
+          type: string
+          description: Title of the product
+        category:
+          type: string
+          description: Category of the product
+        image:
+          type: string
+          description: URL of the product image
+        sold:
+          type: integer
+          description: Total number of items sold
+        price:
+          type: number
+          format: float
+          description: Price of the product
+        sales_value:
+          type: number
+          format: float
+          description: Total sales value in dollars
+      required:
+        - id
+        - title
+        - category
+        - image
+        - sold
+        - price
+        - sales_value
+
+    ProductDetails:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the product
+        title:
+          type: string
+          description: Title of the product
+        description:
+          type: string
+          description: Detailed description of the product
+        size:
+          type: string
+          description: Available size(s) for the product
+        company_name:
+          type: string
+          description: Name of the company that manufactures the product
+        tags:
+          type: array
+          description: Tags related to the product for categorization and filtering
+          items:
+            type: string
+      required:
+        - id
+        - title
+        - description
+        - company_name
