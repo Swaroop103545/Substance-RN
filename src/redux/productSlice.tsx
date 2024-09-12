@@ -31,7 +31,6 @@ const initialState: ProductsState = {
   searchQuery: '',
 };
 
-// Define custom error messages
 const errorMessages: Record<string, string> = {
   'Network Error': 'Network error. Please check your internet connection.',
   '404': 'Products not found.',
@@ -51,7 +50,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
     const response = await axios.get('https://fakestoreapi.com/products');
-    await saveToStorage('products', response.data); // Save to local storage
+    await saveToStorage('products', response.data);
     return response.data;
   },
 );
@@ -69,7 +68,19 @@ const productsSlice = createSlice({
     addProduct: (state, action) => {
       state.products.push(action.payload);
       state.filteredProducts.push(action.payload);
-      saveToStorage('products', state.products); // Save updated products to local storage
+      saveToStorage('products', state.products);
+    },
+    updateProduct: (state, action) => {
+      const index = state.products.findIndex(
+        product => product.id === action.payload.id,
+      );
+      if (index !== -1) {
+        state.products[index] = action.payload;
+        state.filteredProducts = state.products.filter(product =>
+          product.title.toLowerCase().includes(state.searchQuery.toLowerCase()),
+        );
+        saveToStorage('products', state.products);
+      }
     },
   },
   extraReducers: builder => {
@@ -114,7 +125,6 @@ const productsSlice = createSlice({
 
         const status = action.error.response?.status;
         if (status) {
-          errorMessage = errorMessages[status];
           errorMessage = errorMessages[status] || errorMessages.default;
         }
 
@@ -123,5 +133,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const {setSearchQuery, addProduct} = productsSlice.actions;
+export const {setSearchQuery, addProduct, updateProduct} =
+  productsSlice.actions;
 export default productsSlice.reducer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import RepelButton from '../../Components/RepelButton'; // Import the RepelButton component
+import RepelButton from '../../Components/RepelButton';
 import {useNavigation} from '@react-navigation/native';
 import {styles} from './Styles';
 

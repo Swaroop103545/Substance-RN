@@ -8,7 +8,6 @@ const ProductDetailsScreen = ({ route }: any) => {
   const { product } = route.params;
   const navigation = useNavigation();
 
-  // Function to handle edit button press
   const handleEditPress = () => {
     navigation.navigate('Update', { product });
   };

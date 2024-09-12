@@ -41,7 +41,6 @@ const Card = ({item, index, scrollY, onPress}: Props) => {
     extrapolate: 'clamp',
   });
 
-  // Set default values if rating is undefined
   const ratingRate = item.rating?.rate || 0;
   const ratingCount = item.rating?.count || 0;
 

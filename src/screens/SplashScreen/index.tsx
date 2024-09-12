@@ -4,16 +4,16 @@ import {View, Text, Image, Animated, StyleSheet, Easing} from 'react-native';
 import {styles} from './Styles';
 
 const SplashScreen = ({onAnimationEnd}: {onAnimationEnd: () => void}) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 2000, // Duration of the animation
+      duration: 2000,
       easing: Easing.ease,
       useNativeDriver: true,
     }).start(() => {
-      setTimeout(onAnimationEnd, 1000); // Duration before navigating
+      setTimeout(onAnimationEnd, 1000);
     });
   }, [fadeAnim, onAnimationEnd]);
 

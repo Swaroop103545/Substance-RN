@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, TouchableOpacity, StyleSheet, Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native'; // For navigation actions
+import {useNavigation} from '@react-navigation/native';
 import {styles} from './Styles';
 
 interface Props {

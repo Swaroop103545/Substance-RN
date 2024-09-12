@@ -29,10 +29,10 @@ const ProductHeader = () => {
   const toggleSearch = () => {
     setIsSearching(!isSearching);
     setButtonText(isSearching ? 'Add Products' : 'X');
-    setIsButtonVisible(isSearching); // Toggle button visibility
+    setIsButtonVisible(isSearching);
 
     Animated.timing(searchBarWidth, {
-      toValue: isSearching ? 40 : screenWidth * 0.75, // Responsive width
+      toValue: isSearching ? 40 : screenWidth * 0.75,
       duration: 300,
       useNativeDriver: false,
     }).start();
@@ -42,7 +42,7 @@ const ProductHeader = () => {
     setIsSearching(false);
     setButtonText('Add Products');
     setIsButtonVisible(true);
-    dispatch(setSearchQuery('')); // Clear search query
+    dispatch(setSearchQuery(''));
 
     Animated.timing(searchBarWidth, {
       toValue: 40,
@@ -53,17 +53,15 @@ const ProductHeader = () => {
 
   const onSearchChange = (query: any) => {
     dispatch(setSearchQuery(query));
-    setIsButtonVisible(query.length === 0); // Show button if search input is empty
+    setIsButtonVisible(query.length === 0);
   };
 
   const onButtonPress = () => {
     if (isSearching) {
       closeSearch();
       console.log('Searching...');
-      // Additional logic for search functionality can be added here
     } else {
       console.log('Adding products...');
-      // Navigate to "Add Products" screen
       navigation.navigate('AddProductsScreen');
     }
   };
@@ -87,7 +85,7 @@ const ProductHeader = () => {
               value={searchQuery}
               onChangeText={onSearchChange}
               autoFocus
-              onSubmitEditing={() => Keyboard.dismiss()} // Hide keyboard on submit
+              onSubmitEditing={() => Keyboard.dismiss()}
             />
           </>
         )}

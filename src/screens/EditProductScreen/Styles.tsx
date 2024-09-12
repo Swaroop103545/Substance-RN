@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { COLORS } from '../../utils/Colors';
+import {StyleSheet} from 'react-native';
+import {COLORS} from '../../utils/Colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -12,18 +12,18 @@ export const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    fontWeight: '600', // Slightly lighter than bold
-    color: COLORS.GREY, // A subtle grey for labels
+    fontWeight: '600',
+    color: COLORS.GREY,
     marginBottom: 8,
   },
   input: {
-    borderColor: COLORS.LIGHT_GREY,
+    borderColor: COLORS.GREY,
     borderWidth: 1,
-    borderRadius: 8, // Rounded corners for a softer look
+    borderRadius: 8,
     padding: 12,
     marginBottom: 20,
     fontSize: 16,
-    backgroundColor: COLORS.LIGHT_WHITE, // Light background for input fields
+    backgroundColor: COLORS.OFFWHITE,
   },
   saveButton: {
     backgroundColor: COLORS.APP_THEME_COLOR,
@@ -32,14 +32,14 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginTop: 20,
-    shadowColor: '#000', // Shadow for a lifted effect
-    shadowOffset: { width: 0, height: 2 },
+    shadowColor: COLORS.BLACK,
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
   },
   saveButtonText: {
     color: COLORS.WHITE,
     fontSize: 18,
-    fontWeight: '700', // Bold for emphasis
+    fontWeight: '700',
   },
 });

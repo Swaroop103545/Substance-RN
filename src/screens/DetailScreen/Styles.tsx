@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingBottom: 20, // Add some padding at the bottom to avoid overlap with the button
+    paddingBottom: 20,
   },
   image: {
     width: '100%',

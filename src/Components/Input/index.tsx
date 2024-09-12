@@ -20,7 +20,7 @@ interface Props {
   keyboardType?: 'default' | 'number-pad' | 'decimal-pad' | 'numeric' | 'email-address' | 'phone-pad';
   returnKeyType?: 'done' | 'go' | 'next' | 'search' | 'send';
   onSubmitEditing?: (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void;
-  ref?: RefObject<TextInput>; // Optional ref to forward the ref
+  ref?: RefObject<TextInput>;
 }
 
 const Input = ({ 
@@ -29,7 +29,7 @@ const Input = ({
   onChangeText, 
   customStyles, 
   keyboardType, 
-  returnKeyType = 'done', // Default to 'done' if not specified
+  returnKeyType = 'done',
   onSubmitEditing,
   ...props 
 }: Props) => {
@@ -90,8 +90,8 @@ const Input = ({
           onBlur={handleBlur}
           onChangeText={onChangeText}
           keyboardType={keyboardType}
-          returnKeyType={returnKeyType} // Set the return key type here
-          onSubmitEditing={onSubmitEditing} // Handle submission
+          returnKeyType={returnKeyType}
+          onSubmitEditing={onSubmitEditing}
           style={styles.input}
           {...props}
         />

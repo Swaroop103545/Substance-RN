@@ -23,14 +23,11 @@ const HomeScreen = ({navigation}: any) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Load products from local storage
         await dispatch(loadProductsFromStorage()).unwrap();
 
-        // Optionally, refetch from API if needed
         await dispatch(fetchProducts()).unwrap();
       } catch (err) {
         console.error('Error fetching data:', err);
-        // Show error modal if there is an error
         setIsModalVisible(true);
       }
     };
