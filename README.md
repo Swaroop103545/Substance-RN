@@ -1,22 +1,27 @@
 # Getting Started
 ## Packages Installed
     
-##### "@react-navigation/native": "^6.1.18",
-##### "@reduxjs/toolkit": "^2.2.7", (Not Required)
-##### "@testing-library/jest-native": "^5.4.3",
-##### "@testing-library/react-native": "^12.5.3",
-##### "@types/react-native": "^0.73.0",
-##### "react": "18.2.0",
-##### "react-native": "0.74.5",
-##### "react-native-elements": "^3.4.3",
-##### "react-native-gesture-handler": "^2.18.1",
-##### "react-native-reanimated": "^3.15.0",
-##### "react-native-safe-area-context": "^4.10.8",
-##### "react-native-screens": "^3.34.0",
-##### "react-redux": "^9.1.2"
+##### "@react-navigation/native",
+##### "@reduxjs/toolkit": "^2.2.7",
+##### "@testing-library/jest-native",
+##### "@testing-library/react-native",
+##### "@types/react-native",
+##### "react",
+##### "react-native",
+##### "react-native-elements",
+##### "react-native-gesture-handler",
+##### "react-native-reanimated",
+##### "react-native-safe-area-context",
+##### "react-native-screens",
+##### "react-redux",
 ##### "react-native-axios"
 ##### "@react-native-async-storage/async-storage"
 ##### "jest"
+
+### API
+```bash
+https://fakestoreapi.com/products
+```
 
 ### Using npm
 
